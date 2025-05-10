@@ -131,14 +131,35 @@ h2 {
   font-size: 1.5rem;
 }
 
+/* NEON LINK STYLES */
 .mission-card h3 a {
   color: var(--primary);
   text-decoration: none;
+  text-shadow: 0 0 10px var(--primary);
   transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.mission-card h3 a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
 }
 
 .mission-card h3 a:hover {
-  text-shadow: 0 0 8px var(--primary);
+  text-shadow: 0 0 20px var(--primary);
+}
+
+.mission-card h3 a:hover::after {
+  transform: scaleX(1);
+  box-shadow: 0 0 15px var(--primary);
 }
 
 .mission-card p {
