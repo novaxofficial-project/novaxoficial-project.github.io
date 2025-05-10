@@ -3,7 +3,8 @@
     --primary: #00f3ff;
     --dark: #0a0a1a;
     --light: #ffffff;
-    --blur-amount: 8px;
+    --blur-intensity: 8px;
+    --glass-opacity: 0.15;
 }
 
 body {
@@ -12,18 +13,29 @@ body {
     color: var(--light);
     line-height: 1.6;
     overflow-x: hidden;
-    position: relative;
     min-height: 100vh;
 }
 
-/* Background Image */
-.bg-image {
+/* Space Background (Unblurred) */
+.space-bg {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background: url('../images/space-bg.jpg') no-repeat center/cover;
+    z-index: -2;
+}
+
+/* Full-page Blur Overlay */
+.blur-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(var(--blur-intensity));
+    background: rgba(10, 10, 26, var(--glass-opacity));
     z-index: -1;
 }
 
@@ -33,12 +45,11 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 1rem 5%;
-    background: rgba(10, 10, 26, 0.7);
-    backdrop-filter: blur(var(--blur-amount));
+    background: rgba(10, 10, 26, 0.5);
     position: fixed;
     width: 90%;
     z-index: 1000;
-    border-bottom: 1px solid rgba(0, 243, 255, 0.2);
+    border-bottom: 1px solid rgba(0, 243, 255, 0.3);
 }
 
 .logo {
@@ -73,37 +84,22 @@ body {
 .hero {
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 5%;
-}
-
-.content-box {
-    background: rgba(10, 10, 26, 0.7);
-    backdrop-filter: blur(var(--blur-amount));
-    border-radius: 15px;
-    padding: 3rem;
     text-align: center;
-    border: 1px solid rgba(0, 243, 255, 0.2);
-    box-shadow: 0 0 30px rgba(0, 243, 255, 0.1);
-    max-width: 800px;
-    width: 90%;
+    padding: 0 5%;
 }
 
 .hero h1 {
     font-family: 'Orbitron', sans-serif;
     font-size: 4rem;
-    margin: 0 0 1rem 0;
+    margin: 0;
     text-shadow: 0 0 15px var(--primary);
 }
 
-.hero p {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
 .cta-button {
-    margin-top: 1rem;
+    margin-top: 2rem;
     padding: 1rem 2.5rem;
     background: transparent;
     border: 2px solid var(--primary);
@@ -121,45 +117,12 @@ body {
     box-shadow: 0 0 20px var(--primary);
 }
 
-/* Missions Page Styles */
-.missions {
-    padding: 120px 5% 60px;
-    min-height: 100vh;
-}
-
-.mission-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 3rem;
-}
-
-.mission-card {
-    background: rgba(10, 10, 26, 0.7);
-    backdrop-filter: blur(var(--blur-amount));
-    border-radius: 10px;
-    padding: 2rem;
-    border: 1px solid rgba(0, 243, 255, 0.2);
-    transition: transform 0.3s;
-}
-
-.mission-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0, 243, 255, 0.1);
-}
-
-.mission-card h3 {
-    color: var(--primary);
-    font-family: 'Orbitron', sans-serif;
-    margin-top: 0;
-}
-
 /* Footer */
 footer {
     text-align: center;
     padding: 2rem;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(var(--blur-amount));
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(0, 243, 255, 0.2);
 }
 
 /* Mobile Responsiveness */
@@ -170,13 +133,5 @@ footer {
     
     .nav-links {
         gap: 1rem;
-    }
-    
-    .content-box {
-        padding: 2rem 1rem;
-    }
-    
-    .mission-grid {
-        grid-template-columns: 1fr;
     }
 }
