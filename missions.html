@@ -4,44 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NOVAX | Missions</title>
+    <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Space Background (Unblurred) -->
-    <div class="space-bg"></div>
+    <!-- Background -->
+    <div class="background"></div>
     
-    <!-- Full-page Blur Overlay -->
-    <div class="blur-overlay"></div>
-    
-    <nav class="navbar">
-        <div class="logo">NOVAX</div>
-        <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="missions.html" class="active">Missions</a></li>
-            <li><a href="about.html">About</a></li>
-        </ul>
-    </nav>
-
-    <section class="missions">
-        <h2>OUR MISSIONS</h2>
-        <div class="mission-grid">
-            <div class="mission-card">
-                <h3>ARTEMIS-III</h3>
-                <p>Lunar base construction (2026)</p>
+    <!-- Content Container -->
+    <div class="container">
+        <header>
+            <h1>NOVAX</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="missions.html" class="active">Missions</a>
+                <a href="about.html">About</a>
+            </nav>
+        </header>
+        
+        <main>
+            <h2>OUR MISSIONS</h2>
+            
+            <div class="mission-grid">
+                <!-- Mission 1 -->
+                <div class="mission-card">
+                    <h3>ARTEMIS-III</h3>
+                    <p>Lunar base construction</p>
+                    <div class="mission-date">2026</div>
+                </div>
+                
+                <!-- Mission 2 -->
+                <div class="mission-card">
+                    <h3>MARS HABITAT</h3>
+                    <p>First manned Mars mission</p>
+                    <div class="mission-date">2032</div>
+                </div>
+                
+                <!-- Mission 3 -->
+                <div class="mission-card">
+                    <h3>STARLINK-X</h3>
+                    <p>Interplanetary internet</p>
+                    <div class="mission-date">2025</div>
+                </div>
             </div>
-            <div class="mission-card">
-                <h3>MARS HABITAT</h3>
-                <p>First manned Mars mission (2032)</p>
-            </div>
-            <div class="mission-card">
-                <h3>STARLINK-X</h3>
-                <p>Interplanetary internet (2025)</p>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>© 2024 NOVAX Space Agency. All rights reserved.</p>
-    </footer>
+        </main>
+        
+        <footer>
+            © 2024 NOVAX Space Agency
+        </footer>
+    </div>
 </body>
 </html>
